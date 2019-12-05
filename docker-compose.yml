@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+        context: ./app
+        dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/opt/app/
+    ports:
+      - 4000:8000
+    env_file:
+      - ./env/django.env
