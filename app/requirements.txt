@@ -1,3 +1,4 @@
 #./django-docker/app/requirments.txt
 #Packages
 Django==2.2.8
+psycopg2-binary==2.8.3
