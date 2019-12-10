@@ -26,7 +26,7 @@ class CompanyView(View):
 class EmployeeListView(View):
     form_class = EmployeeForm
     initial = {}
-    template_name = 'employee.html'
+    template_name = 'list.html'
 
 class EmployeeFormView(View):
     form_class = EmployeeForm
