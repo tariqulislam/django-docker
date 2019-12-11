@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('company/list/', CompanyListView.as_view(), name='company_list'),
     path('company/create/', CompanyCreateView.as_view(), name='company_create'),
-    path('company/{id}/edit/', CompanyEditFormView.as_view(), name="company_edit")
+    path('company/<int:id>/edit/', CompanyEditFormView.as_view(), name="company_edit")
 ]

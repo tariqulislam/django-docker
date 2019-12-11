@@ -38,10 +38,12 @@ class CompanyCreateView(View):
 
 
 class CompanyEditFormView(CompanyCreateView):
-    
+    form_class = CompanyForm
     def get(self, request, *args, **kwargs):
-        getCompany = Company.object.get(pk=id)
-        form = self.form_class(inital=getCompany)
+        # getCompany = Company.objects.get(pk=id)
+        from pprint import pprint
+        pprint(vars(request.GET))
+        form = self.form_class({})
         return render(request, self.template_name, {'form': form, 'option': 'edit'})
     
     def post(self, request, *args, **kwargs):

@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
   <form>
     {% csrf_token %}
-    {{ form }}
-    <button type="submit" formaction="/edit"></button>
+    {{ form|crispy }}
+    {% if option == 'edit' %}
+        <button type="submit" class="btn btn-warning" formaction="/edit">Edit Company</button>
+    {% endif %}
+    {% if option == 'create' %}
     <button type="submit" formaction="/create" class="btn btn-success">Save Company</button>
+    {% endif %}
   </form>
 {% endblock %}

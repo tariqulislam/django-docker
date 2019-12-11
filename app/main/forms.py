@@ -7,12 +7,13 @@ COUNTRY = (
 )
 
 class CompanyForm(forms.ModelForm):
-    address = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))
     conutries = forms.CharField(widget=forms.Select(choices=COUNTRY))
+    address = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))
+    
     class Meta:
         model = Company
         fields = [
-            'name', 'address', 'country', 'city', 'website'
+            'name', 'address', 'city', 'website'
         ]
 
 # class EmployeeForm(forms.ModelForm):
