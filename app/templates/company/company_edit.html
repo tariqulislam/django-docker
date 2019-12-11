@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" formaction="/edit"></button>
+    <button type="submit" formaction="/create" class="btn btn-success">Save Company</button>
+  </form>
+{% endblock %}
