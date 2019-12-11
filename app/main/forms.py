@@ -1,5 +1,5 @@
 from django import forms
-from .models import (Company,Employee)
+from .models import (Company)
 
 COUNTRY = (
     ('BD', 'Bangladesh'),
@@ -15,13 +15,13 @@ class CompanyForm(forms.ModelForm):
             'name', 'address', 'country', 'city', 'website'
         ]
 
-class EmployeeForm(forms.ModelForm):
-    companies = forms.ModelChoiceField(queryset=Company.objects.all(), empty_label="(No Company)")
-    email = forms.EmailField()
-    address = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))
+# class EmployeeForm(forms.ModelForm):
+#     companies = forms.ModelChoiceField(queryset=Company.objects.all(), empty_label="(No Company)")
+#     email = forms.EmailField()
+#     address = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))
 
-    class class Meta:
-        model = Employee
-        fields = [
-            'first_name', 'last_name', 'email', 'gender', 'phone', 'address', 'company'
-        ]
+#     class Meta:
+#         model = Employee
+#         fields = [
+#             'first_name', 'last_name', 'email', 'gender', 'phone', 'address', 'company'
+#         ]
