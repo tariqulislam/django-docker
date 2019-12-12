@@ -16,7 +16,7 @@ class CompanyForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = [
-            'name', 'address', 'city', 'website'
+           'name', 'address', 'city', 'website'
         ]
 
 # class EmployeeForm(forms.ModelForm):
