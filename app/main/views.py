@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import (Company)
 from .forms import CompanyForm
 
@@ -47,11 +47,20 @@ class CompanyCreateView(View):
 
 class CompanyEditFormView(CompanyCreateView):
     form_class = CompanyForm
-    def get(self, request, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         # getCompany = Company.objects.get(pk=id)
-        from pprint import pprint
-        pprint(vars(request.GET))
-        form = self.form_class({})
+        form =self.form_class(initial={})
+        if id is not None:
+            obj = get_object_or_404(Company, id=id)
+            print(obj.name)
+            data = {
+                'name': obj.name,
+                'address': obj.address,
+                'city': obj.city,
+                'website': obj.website,
+                'countries': obj.country
+            }
+            form = self.form_class(initial=data)
         return render(request, self.template_name, {'form': form, 'option': 'edit'})
     
     def post(self, request, *args, **kwargs):
