@@ -7,7 +7,10 @@ COUNTRY = (
 )
 
 class CompanyForm(forms.ModelForm):
-    conutries = forms.CharField(widget=forms.Select(choices=COUNTRY))
+    name= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    city= forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    website = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    countries = forms.CharField(widget=forms.Select(choices=COUNTRY, attrs={'class': 'form-control'}))
     address = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))
     
     class Meta:
