@@ -33,7 +33,15 @@ class CompanyCreateView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('/list')
+            print(request.POST)
+            new_company = Company()
+            new_company.name = form.cleaned_data.get('name')
+            new_company.address = form.cleaned_data.get('address')
+            new_company.country = form.cleaned_data.get('countries')
+            new_company.city = form.cleaned_data.get('city')
+            new_company.website = form.cleaned_data.get('website')
+            new_company.save()
+            return HttpResponseRedirect('/company/list/')
         return render(request, self.template_name, {'form': form, 'option': 'create'})
 
 

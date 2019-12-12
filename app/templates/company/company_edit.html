@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form>
+  <form method="post">
     {% csrf_token %}
     <div class="form-group">
         <label for="{{ form.name.id_for_label }}">Name</label>
@@ -24,10 +24,10 @@
         {{ form.address }}
     </div>
     {% if option == 'edit' %}
-        <button type="submit" class="btn btn-warning" formaction="/edit">Edit Company</button>
+        <button type="submit" class="btn btn-warning"  formaction="company/edit">Edit Company</button>
     {% endif %}
     {% if option == 'create' %}
-    <button type="submit" formaction="/create" class="btn btn-success">Save Company</button>
+    <button type="submit" formaction="/company/create/" class="btn btn-success">Save Company</button>
     {% endif %}
   </form>
 {% endblock %}
